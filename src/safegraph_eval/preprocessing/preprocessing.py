@@ -24,8 +24,8 @@ def label_and_remove_outliers_iqr(
         column_to_filter (str): The SafeGraph column on which perform the outlier filtering (e.g., raw_visit_counts).
     Optional Parameters:
         k (float): Value that will be multiplied by the interquartile range to determine outliers. Defaults to 1.5.
-        remove (bool): Whether or not to remove the outlier rows from the returned DataFrame.
-        verbose (bool): If True, prints how many POI were removed as outliers.
+        remove (bool): Whether or not to remove the outlier rows from the returned DataFrame. Defaults to True.
+        verbose (bool): If True, prints how many POI were removed as outliers. Defaults to True.
         brand_whitelist (list): List of safegraph_brand_ids to omit from the outlier filter. Defaults to an empty list.
         placekey_whitelist (list): List of placekeys to omit from the outlier filter. Defaults to an empty list.
     """
