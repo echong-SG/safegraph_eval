@@ -72,6 +72,8 @@ def map_poi_and_neighbors(map_df, basemap = 'ESRI_imagery'):
     map_df_grouped = gpd.GeoDataFrame(map_df_grouped, geometry = gpd.GeoSeries.from_wkt(map_df_grouped['polygon_wkt']), crs = 'EPSG:4326')
     
     # initialize map
+    f = folium.Figure(width=1200, height=400)
+
     if basemap.lower() == 'esri_imagery':
         map_ = folium.Map(location = [float(center["latitude"]), float(center["longitude"])], zoom_start = 19)
         
@@ -103,7 +105,9 @@ def map_poi_and_neighbors(map_df, basemap = 'ESRI_imagery'):
         )
     ).add_to(map_)
     
-    return map_
+    map_.add_to(f)
+    
+    return f
 
 def verify_POI_geometry(df, placekeys = None, basemap = 'ESRI_imagery', neighbor_radius = 50, geometry_col = 'polygon_wkt'):
     """
