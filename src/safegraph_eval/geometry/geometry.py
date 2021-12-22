@@ -73,7 +73,7 @@ def map_poi_and_neighbors(map_df, basemap = 'ESRI_imagery'):
     
     # initialize map
     if basemap.lower() == 'esri_imagery':
-        map_ = folium.Map(location = [center["latitude"], center["longitude"]], zoom_start = 19)
+        map_ = folium.Map(location = [float(center["latitude"]), float(center["longitude"])], zoom_start = 19)
         
         tile  = folium.TileLayer(
             tiles = 'https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',
@@ -84,7 +84,7 @@ def map_poi_and_neighbors(map_df, basemap = 'ESRI_imagery'):
            ).add_to(map_)
         
     elif basemap.lower() == 'osm':
-        map_ = folium.Map(location = [center["latitude"], center["longitude"]], zoom_start = 19, tiles = 'OpenStreetMap')
+        map_ = folium.Map(location = [float(center["latitude"]), float(center["longitude"])], zoom_start = 19, tiles = 'OpenStreetMap')
     
     
     # tool tip list
